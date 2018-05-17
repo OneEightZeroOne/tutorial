@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		用户名:<input id="username" type="text" />
+		<br /> 密码:
+		<input id="password" type="password" />
+		<button id="register">注册</button>
+		<script type="text/javascript">
+			//注册
+			//1.获取用户名和密码                                         ----前端       
+			//2.然后用ajax提交 后端                                    ----ajax
+			//3.后端用sql语句  连接数据库 添加到数据库中---后端--sql-->数据库
+			//4.如果添加成功的话，后端再返回注册成功    ----响应回前端
+
+			//登录
+			//1.获取用户名和密码                                         ----前端       
+			//2.然后用ajax提交 后端                                    ----ajax
+			//3.后端用sql语句  连接数据库 把用户和密码匹对---后端--sql-->数据库
+			//4.如果匹对成功的话，后端再返回登录成功    ----响应回前端
+
+			document.querySelector("#register").onclick = () => {
+				var username = document.querySelector("#username").value;
+				var password = document.querySelector("#password").value;
+
+				//1.实例化xhr
+				var xhr = new XMLHttpRequest();
+				console.log(xhr)
+				//2.处理服务器返回数据 
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4) {
+						console.log(xhr.responseText);
+					}
+				}
+				//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+				//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+				xhr.open("post", "http://localhost:88/gz1802/4.mysql/loginRegister/register.php", true);
+				//用post请求必须加上这一句
+				xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+				//4.向服务器发送请求
+				xhr.send(`username=${username}&password=${password}`);
+			}
+		</script>
+	</body>
+
+</html>
