@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<script>
+			//一定是全局的函数
+			function json_cb(data) {
+				console.log(data);
+				return data;
+			}
+		</script>
+		<!--<script>
+			json_cb({
+				'name': 'laoxie',
+				'age': 18
+			})
+		</script>-->
+		<script src="jsonp2.php"></script>
+	</body>
+
+</html>

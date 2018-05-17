@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			/*setTimeout(() => {
+				console.log("等披萨");
+				setTimeout(() => {
+					console.log("见网友");
+					setTimeout(() => {
+						console.log("见网友");
+						setTimeout(() => {
+							console.log("见网友");
+						}, 3000)
+					}, 3000)
+				}, 3000)
+			}, 3000)*/
+
+			//成功resolve
+			//失败reject
+
+			//第一个承诺
+			function buyPiza() {
+				return new Promise(function(resolve, reject) {
+					setTimeout(() => {
+						console.log("等披萨");
+						//触发第二承诺
+						resolve();
+					}, 3000)
+				})
+			}
+
+			//第二个承诺
+			function meetFriend() {
+				return new Promise(function(resolve, reject) {
+					setTimeout(() => {
+						console.log("见网友");
+						//触发第二承诺
+						resolve();
+					}, 3000)
+				})
+			}
+			
+			//第三个承诺
+			function eat() {
+				return new Promise(function(resolve, reject) {
+					setTimeout(() => {
+						console.log("吃个麻辣烫");
+						//触发第二承诺
+						//resolve();
+					}, 3000)
+				})
+			}
+			
+			buyPiza().then(meetFriend).then(eat);
+			/*console.log("等披萨");
+			console.log("见网友");
+			console.log("吃个麻辣烫");*/
+		</script>
+	</body>
+
+</html>

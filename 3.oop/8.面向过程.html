@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			function eat() {
+				console.log("eat")
+			}
+
+			function look() {
+				console.log("look")
+			}
+
+			function walk() {
+				console.log("walk")
+			}
+
+			/*eat();
+			look();
+			walk();*/
+
+			function Action() {
+				//var obj = {};
+				this.eat = function() {
+					console.log("eat");
+					return this;
+				}
+				this.look = function() {
+					console.log("look");
+					return this;
+				}
+				this.walk = function(){
+					console.log("walk");
+					return this;
+				}
+				//return obj;
+			}
+			
+			var action = new Action();
+			action.eat().look().walk();
+			
+			/*action.look();
+			action.walk();*/
+		</script>
+	</body>
+
+</html>

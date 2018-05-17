@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			function makeDanMu(content) {
+				this.x = window.innerWidth;
+				this.y = Math.random() * window.innerHeight;
+				this.offset = 10;
+				this.content = content;
+			}
+
+			makeDanMu.prototype = {
+				move: function() {
+					this.x = this.x - this.offset;
+					ctx.font = "40px Arial";
+					ctx.fillText(this.content, this.x, this.y);
+					ctx.stroke();
+				},
+				eat:function(){
+					
+				}
+			}
+
+			var DM1 = new makeDanMu();
+			console.log(DM1);
+			var DM2 = new makeDanMu();
+			console.log(DM2);
+		</script>
+	</body>
+
+</html>

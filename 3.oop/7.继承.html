@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//动物类
+			function Animal(sex,age){
+				this.sex = sex;
+				this.age = age;
+			}
+			var obj = {
+				name:"KD"
+			}
+			//犬类
+			function Dog(name){
+				//var obj = {};
+				this.name = name;
+				this.eat = function(){
+					
+				};
+			}
+			//Dog  Object();
+			//犬类来自于动物类的一个分支
+			Dog.prototype = obj;
+			var dog1 = new Dog("哈士奇");
+			console.log(dog1);
+			
+			//new Object();
+			//原型链的指向要改变
+			PeopleDog.prototype = new Dog();
+			function PeopleDog(action){
+				//var obj = {};
+				this.action = action;
+			}
+			
+			var PeopleDog = new PeopleDog("xxxx")
+			console.log(PeopleDog)
+		</script>
+	</body>
+</html>

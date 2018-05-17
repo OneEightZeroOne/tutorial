@@ -1,0 +1,3 @@
+1.利用原生的ajax技术    xhr  图灵机器人
+
+后端api：http://www.tuling123.com/openapi/api?key=c75ba576f50ddaa5fd2a87615d144ecf&info=%E6%A2%81%E9%9D%99%E8%8C%B9

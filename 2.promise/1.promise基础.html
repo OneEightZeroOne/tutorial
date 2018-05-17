@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script>
+			//有回调函数不一定异步
+			//有异步一定要有回调
+			console.log("出门");
+			/*setInterval(()=>{
+				console.log("等披萨");
+			},3000)*/
+			//回调地狱  回调金字塔
+			setTimeout(() => {
+				console.log("等披萨");
+				setTimeout(() => {
+					console.log("见网友");
+					setTimeout(() => {
+						console.log("见网友");
+						setTimeout(() => {
+							console.log("见网友");
+						}, 3000)
+					}, 3000)
+				}, 3000)
+			}, 3000)
+
+			//console.log("见网友");
+
+			//ajax
+		</script>
+	</body>
+
+</html>

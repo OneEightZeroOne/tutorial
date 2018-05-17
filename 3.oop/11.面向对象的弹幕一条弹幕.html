@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//生成一个画布的标签
+			var canvas = document.createElement("canvas");
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			canvas.style.backgroundColor = "#ffffff";
+
+			document.body.appendChild(canvas);
+			//制造二维空间
+			var ctx = canvas.getContext("2d");
+			
+			var x = window.innerWidth;
+			var y = 50;
+			var offset = 10;
+			setInterval(function() {
+				ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+				x = x - offset;
+				ctx.font = "40px Arial";
+				ctx.fillText("Hello World", x, 50);
+				ctx.stroke();
+			}, 100)
+		</script>
+	</body>
+
+</html>

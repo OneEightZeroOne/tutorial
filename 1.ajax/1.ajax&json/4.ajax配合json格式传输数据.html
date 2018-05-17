@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="skill"></ul>
+		<script>
+			//1.实例化xhr
+			var xhr = new XMLHttpRequest();
+			console.log(xhr)
+			//2.处理服务器返回数据 
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState == 4) {
+					console.log(JSON.parse(xhr.responseText));
+					var skill = JSON.parse(xhr.responseText).skill;
+					
+					var html = skill.map(function(item,index){
+						return `<li>${item}</li>`
+					}).join("");
+					document.getElementById("skill").innerHTML = html;
+				}
+			}
+			//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+			//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+			xhr.open("get", "http://localhost:88/gz1802/1.ajax/demo/json.php", true);
+			
+			//4.向服务器发送请求
+			xhr.send(null);
+		</script>
+	</body>
+</html>

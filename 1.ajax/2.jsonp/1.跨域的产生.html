@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//1.实例化xhr
+			var xhr = new XMLHttpRequest();
+			console.log(xhr)
+			//2.处理服务器返回数据 
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState == 4) {
+					console.log(xhr.responseText);
+				}
+			}
+			//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+			//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+			//xhr.open("get", "https://v.qq.com/json/barragelist/qqface.json", true);
+			xhr.open("get", "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=abc&oq=1&rsv_pq=9e5559c500004c02&rsv_t=bda5fbsQwZgsaUoJ6HyyDXVmv2FfWQeLmKHTPV0qLgdLFNffP%2FkvfRQthVU&rqlang=cn&rsv_enter=1&inputT=895&rsv_sug3=5&rsv_sug1=4&rsv_sug7=100&rsv_sug2=0&rsv_sug4=896", true);
+
+			//4.向服务器发送请求
+			xhr.send(null);
+		</script>
+	</body>
+
+</html>

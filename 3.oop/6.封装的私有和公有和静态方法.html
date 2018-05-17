@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Cat(name,fur){
+				//私有变量
+				var a = 1;
+				//类型 公有变量
+				this.name = name;
+				this.fur = fur;
+				//行为 公有方法
+				this.eat = function(){
+					console.log("吃")
+				};
+				this.miaow = function(){
+					console.log("叫")
+				};
+				//return obj;
+			}
+			Cat.abc = "abc";
+			var GarfieldCat = new Cat("GarfieldCat","glasses");
+			GarfieldCat.talk = function(){
+				console.log("聊天")
+			}
+			GarfieldCat.eat();
+			GarfieldCat.miaow();
+			console.log(Cat.abc);
+			
+			
+			
+		</script>
+	</body>
+</html>

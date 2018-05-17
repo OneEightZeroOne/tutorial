@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			setInterval(function() {
+				var xhr = new XMLHttpRequest();
+				//2.处理服务器返回数据 回调函数
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4) {
+						console.log(JSON.parse(xhr.responseText).text);
+						var reply = JSON.parse(xhr.responseText).text;
+						document.querySelector(".tt-type-msg").value = reply;
+						document.querySelector(".tt-type-submit").click();
+					}
+				}
+				//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+				//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+				xhr.open("get", "http://www.tuling123.com/openapi/api?key=c75ba576f50ddaa5fd2a87615d144ecf&info=" + document.querySelector(".tt-msg-content-h5").innerText, true);
+
+				//4.向服务器发送请求
+				xhr.send(null);
+			}, 1000)
+		</script>
+	</body>
+
+</html>

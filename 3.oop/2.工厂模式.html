@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//1.工厂函数 批量生产对象
+			function createObject(name,skill){
+				var obj = {};
+				//名字
+				obj.name = name;
+				//技能
+				obj.skill = skill;
+				return obj;
+			}
+			
+			var laoxie = createObject("laoxie",['ps','js','css']);
+			var lemon = createObject("lemon",['java','html']);
+		</script>
+	</body>
+</html>

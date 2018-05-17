@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//生成一个画布的标签
+			var canvas = document.createElement("canvas");
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			canvas.style.backgroundColor = "#000000";
+
+			document.body.appendChild(canvas);
+
+			//制造二维空间
+			var ctx = canvas.getContext("2d");
+
+			var x = 20;
+			var y = 20;
+			var offset = 10;
+
+			setInterval(function() {
+				ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+				//绘制矩形路径
+				ctx.rect(x + offset, y + offset, 150, 100);
+				ctx.fillStyle = "#FFFFFF";
+				//ctx.fill();
+				ctx.fillRect(x + offset, y + offset, 150, 100);
+				ctx.strokeStyle = "#FFFFFF";
+				//绘制已定义的路径
+				ctx.stroke();
+				offset += 10;
+			}, 1000)
+		</script>
+	</body>
+
+</html>

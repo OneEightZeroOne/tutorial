@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//xhr promise
+			//new XMLHttpRequest();  new Promise();
+			//new String();
+
+			//构造函数 它通过new来实现实例化
+			function Person(name, age) {
+				//var obj = {};
+				console.log(this)
+				this.name = name;
+				this.age = age;
+				//return obj
+			}
+			//window.Person('laoxie',18);//直接调用的时候this指向window
+			//var laoxie = new Person('laoxie',18);//1.它会执行函数里面的内容 2.它会自己定义一个空的对象 3.然后把this指向这个空的对象 4.把对象给return出来
+			//var lemon = new Person('lemon',8);
+			//console.log(lemon);
+			window.Person('lemon', 8); //如果没new的话 就是普通函数  因为this指向window  window会出现两个全局变量
+
+			function Animal() {
+				console.log(1 + 1)
+			}
+			//new Animal(); //里面有this才有意义
+			console.log(new Animal());
+			console.log(Animal());
+		</script>
+	</body>
+
+</html>

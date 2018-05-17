@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<script type="text/javascript">
+			//生成一个画布的标签
+			var canvas = document.createElement("canvas");
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			canvas.style.backgroundColor = "#000000";
+
+			document.body.appendChild(canvas);
+			//制造二维空间
+			var ctx = canvas.getContext("2d");
+
+			var arr = [];
+			setInterval(function() {
+				ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+				var ball = new makeBall(x,y);
+				arr.push(ball);
+				for(var i = 0; i < arr.length; i++) {
+					arr[i].move();
+				}
+				//ball.move();
+			}, 100);
+
+			function makeBall(x,y) {
+				//球的属性
+				this.x = x;
+				this.y = y;
+
+				this.yVal = -10;//-10 - 越来越慢g -> 0  ->10 -> 越来越快g  开始的y速度
+				this.gravity = 0.98; //重力因素
+				this.xVal = Math.random() * 5 - 2.5; //(-2.5,2.5)  开始的x速度
+
+				//球的动作和行为
+				this.move = function() {
+					this.x = this.x + this.xVal;
+					this.y = this.y + this.yVal;
+					this.yVal = this.yVal + this.gravity;
+
+					//绘制圆
+					ctx.beginPath();
+					ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+					ctx.fillStyle = "#" + Math.floor(Math.random() * 16777215).toString(16);
+					ctx.fill();
+					ctx.stroke();
+				}
+			}
+			
+			var x = 200;
+			var y = 200;
+			canvas.onmousemove = function(e){
+				x = e.clientX;
+				y = e.clientY;
+			}
+		</script>
+	</body>
+
+</html>

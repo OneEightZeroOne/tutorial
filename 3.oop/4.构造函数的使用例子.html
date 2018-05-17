@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//构造函数来实现
+			function Cat(name,fur){
+				//类型
+				this.name = name;
+				this.fur = fur;
+				//行为
+				this.eat = function(){
+					console.log("吃")
+				};
+				this.miaow = function(){
+					console.log("叫")
+				};
+			}
+			
+			//加菲猫
+			var GarfieldCat = new Cat("GarfieldCat","glasses");
+			GarfieldCat.talk = function(){
+				console.log("聊天")
+			}
+			GarfieldCat.eat();
+			GarfieldCat.miaow();
+			
+			//汤姆猫
+			var TomCat = new Cat("TomCat","friend");
+			TomCat.catchMouse = function(){
+				console.log("抓老鼠")
+			}
+			
+			console.log(GarfieldCat,TomCat)
+			
+			
+			//1.new xhr();
+			//2.xhr.onreadystatechange = function(){}
+			//3.xhr.open();
+			//4.xhr.send();
+		</script>
+	</body>
+</html>

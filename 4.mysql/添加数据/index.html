@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		id:<input type="number" id="id" />
+		<br /> name:
+		<input type="text" id="name" />
+		<br /> age:
+		<input type="text" id="age" />
+		<br /> school:
+		<input type="text" id="school" />
+		<button id="submit">提交</button>
+		<script>
+			document.getElementById("submit").onclick = function() {
+				var id = document.getElementById("id").value;
+				var name = document.getElementById("name").value;
+				var age = document.getElementById("age").value;
+				var school = document.getElementById("school").value;
+
+				var xhr = new XMLHttpRequest();
+				console.log(xhr)
+				//2.处理服务器返回数据 回调函数
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4) {
+						console.log(xhr.responseText);
+					}
+				}
+				//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+				//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+				xhr.open("get", "http://localhost:88/gz1802/4.mysql/insert.php?" + `id=${id}&name=${name}&age=${age}&school=${school}`, true);
+
+				//4.向服务器发送请求
+				xhr.send(null);
+			}
+		</script>
+	</body>
+
+</html>

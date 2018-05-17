@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//1.显示一段列表新闻
+			//2.第一个ajax是请求新闻的文字列表
+			//3.第二个ajax是请求新闻的图片列表
+
+			//第一个承诺 拿列表文字
+			function getList() {
+				return new Promise(function(resolve, reject) {
+					//1.实例化xhr
+					var xhr = new XMLHttpRequest();
+					console.log(xhr)
+					//2.处理服务器返回数据 回调函数
+					xhr.onreadystatechange = function() {
+						if(xhr.readyState == 4) {
+							resolve(JSON.parse(xhr.responseText));
+						}
+					}
+					//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+					//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+					xhr.open("get", "http://localhost:88/gz1802/2.promise/news.php", true);
+					//4.向服务器发送请求
+					xhr.send(null);
+				})
+			}
+			
+			//第二个承诺 根据上面的新闻内容拿图片
+			function getImg(list) {
+				console.log(list);
+				return new Promise(function(resolve, reject) {
+					//1.实例化xhr
+					var xhr = new XMLHttpRequest();
+					console.log(xhr)
+					//2.处理服务器返回数据 回调函数
+					xhr.onreadystatechange = function() {
+						if(xhr.readyState == 4) {
+							console.log(xhr.responseText);
+						}
+					}
+					//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+					//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+					xhr.open("get", "http://localhost:88/gz1802/2.promise/news.php", true);
+					//4.向服务器发送请求
+					xhr.send(null);
+				})
+			}
+			
+			getList().then(getImg)
+		</script>
+	</body>
+
+</html>

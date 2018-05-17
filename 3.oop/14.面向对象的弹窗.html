@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.popover {
+				position: absolute;
+				left: 200px;
+				top: 100px;
+				width: 300px;
+				height: 200px;
+				border: 1px solid #ccc;
+				background-color: #fff;
+			}
+			
+			.popover .title {
+				height: 50px;
+				line-height: 50px;
+				padding: 0 10px;
+				background: linear-gradient(#fff, #efefef 5%, #ddd);
+			}
+			
+			.popover .content {
+				padding: 15px;
+			}
+			
+			.popover .footer {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				padding: 20px;
+				text-align: center;
+			}
+			
+			.footer button {
+				display: inline-block;
+				margin: 0 5px;
+				padding: 5px 15px;
+				border: 1px solid #ddd;
+				background: linear-gradient(#efefef, #cfcfcf);
+			}
+			
+			.popover .btn-close {
+				position: absolute;
+				right: 0;
+				top: 0;
+				padding: 0 10px;
+				line-height: 50px;
+				cursor: default;
+			}
+			
+			.popover .btn-close:hover {
+				color: #f00;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			function Popover(title,content) {
+				var self = this;
+				// 生成弹窗外框
+				var _pop = document.createElement('div');
+				_pop.className = 'popover';
+
+				// 生成标题
+				var _title = document.createElement('div');
+				_title.className = 'title';
+				_title.innerHTML = title;
+
+				// 生成内容
+				var _content = document.createElement('div');
+				_content.className = 'content';
+				_content.innerHTML = content;
+
+				// 生成关闭按钮
+				var btnClose = document.createElement('div');
+				btnClose.className = 'btn-close';
+				btnClose.innerHTML = '&times;';
+
+				_pop.appendChild(_title);
+				_pop.appendChild(_content);
+				_pop.appendChild(btnClose);
+
+				document.body.appendChild(_pop);
+
+				this.move = function() {
+					_title.onmousedown = function(e) {
+						e = e || window.event;
+
+						// 记录按下时位置
+						// offsetX:鼠标点击位置距当前元素左侧的距离
+						// offsetY:鼠标点击位置距当前元素顶部的距离
+						var offsetLeft = e.offsetX; //e.clientX - _title.offsetLeft;
+						var offsetTop = e.offsetY; //e.clientY - _title.offsetTop;
+
+						document.onmousemove = function(evt) {
+							evt = evt || window.event;
+
+							var x = evt.clientX - offsetLeft;
+							var y = evt.clientY - offsetTop;
+
+							_pop.style.left = x + 'px';
+							_pop.style.top = y + 'px';
+
+							// 阻止选中文字
+							evt.preventDefault();
+						}
+
+						// 标准阻止默认行为：
+						e.preventDefault();
+						//IE阻止默认行为:e.returnValue = false;
+						//IE阻止冒泡：e.cancelBubble = true;
+						//标准：e.stopPropagation();
+					}
+
+					// 鼠标弹开时清除mousemove事件
+					_title.onmouseup = function() {
+						document.onmousemove = null;
+					}
+
+				}
+				btnClose.onclick = function(){
+					self.close();
+				}
+				this.close = function(){
+					document.body.removeChild(_pop);
+				}
+			}
+
+			var popover = new Popover('设置','设置的内容');
+			popover.move();
+			var popover2 = new Popover('颜色','颜色的内容');
+			popover2.move();
+			var popover3 = new Popover('名字','名字的内容');
+			popover3.move();
+		</script>
+
+	</body>
+
+</html>
