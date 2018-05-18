@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input />
+		<select>
+			<option value="0">降序</option>
+			<option value="1">升序</option>
+		</select>
+		<button>搜索</button>
+		<ul></ul>
+		<script>
+			var button = document.querySelector("button");
+
+			button.onclick = function() {
+				var input = document.querySelector("input").value;
+				var sort = document.querySelector("select").value;
+				var xhr = new XMLHttpRequest();
+				//2.处理服务器返回数据 回调函数
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4) {
+						console.log(JSON.parse(xhr.responseText));
+						var arr = JSON.parse(xhr.responseText);
+						var html = arr.map((item,index)=>{
+							return `<li>${item.id}:${item.quiz}</li>`
+						}).join("");
+						document.querySelector("ul").innerHTML = html;
+					}
+				}
+				//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+				//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+				xhr.open("get", "http://localhost:88/gz1802/4.mysql/search/search.php?"+`wd=${input}&sort=${sort}`, true);
+
+				//4.向服务器发送请求
+				xhr.send(null);
+			}
+		</script>
+	</body>
+
+</html>

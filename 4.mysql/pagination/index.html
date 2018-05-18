@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+
+		</ul>
+		<button onclick="pagination(1)">第一页</button>
+		<button onclick="pagination(2)">第二页</button>
+		<button onclick="pagination(3)">第三页</button>
+		<!--
+			第一个参数是起始位置
+			第二个参数是截取长度
+			SELECT * FROM question LIMIT 5,5
+		-->
+		<script>
+			//var button = document.querySelectorAll("button");
+			function pagination(page) {
+				var xhr = new XMLHttpRequest();
+				//2.处理服务器返回数据 回调函数
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4) {
+						console.log(JSON.parse(xhr.responseText));
+						var arr = JSON.parse(xhr.responseText);
+						var html = arr.map((item, index) => {
+							return `<li>${item.id}:${item.quiz}</li>`
+						}).join("");
+						document.querySelector("ul").innerHTML = html;
+					}
+				}
+				//3.设置请求参数，建立与服务器连接 get/post 客户端 服务端nodejs
+				//利用GET请求 向服务端发送后端url 第三个参数代表同步和异步，一般我们使用异步，同步页面会刷新，异步局部刷新
+				xhr.open("get", "http://localhost:88/gz1802/4.mysql/pagination/pagination.php?" + `page=${page}&length=5`, true);
+
+				//4.向服务器发送请求
+				xhr.send(null);
+			}
+		</script>
+	</body>
+
+</html>
