@@ -1,0 +1,6 @@
+﻿gulp预习：
+
+1. Node环境安装
+2. NPM命令的使用
+3. 了解Sass
+4、了解gulp
