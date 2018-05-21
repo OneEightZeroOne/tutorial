@@ -28,13 +28,5 @@ gulp.task('yasuocss', function() {
 		.pipe(gulp.dest('./css/yasuo'));
 });
 
-gulp.task('toes5', () =>
-	gulp.src('./js/test.js')
-	.pipe(babel({
-		presets: ['env']
-	}))
-	.pipe(gulp.dest('./js/yasuo'))
-);
-
 //默认处理的任务序列
-gulp.task('default', ['yasuocss','toes5']);
+gulp.task('default', ['yasuocss']);

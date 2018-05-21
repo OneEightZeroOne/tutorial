@@ -1,0 +1,1 @@
+let bool:boolean = 1;

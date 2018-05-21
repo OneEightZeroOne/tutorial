@@ -1,0 +1,32 @@
+//<div class="title">
+//  <p class="content">123<span>456</span></p>
+//</div>
+$color:"red";
+$size:"19px";
+p {
+    color: $color;
+    background-color: #00f;
+    transform: rotate(90deg);
+}
+
+header {
+    color: $color;
+    font-size: $size;
+}
+
+.title {
+    color: $color;
+    text-align: center;
+    .content {
+        background-color: $color;
+        span {
+            color: $color;
+        }
+    }
+}
+
+div {
+    p {
+        span {}
+    }
+}

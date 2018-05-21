@@ -44,3 +44,10 @@ var gulp = require("gulp")
 ```js
 node xxx.js
 ```
+
+
+# cnpm
+
+```bash
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
