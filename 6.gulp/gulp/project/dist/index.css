@@ -1,0 +1,24 @@
+p {
+  color: red;
+  background-color: #00f;
+  transform: rotate(90deg); }
+
+header {
+  color: red;
+  font-size: 30px;
+  background-color: blue; }
+
+.title {
+  color: red;
+  text-align: center; }
+  .title .content {
+    background-color: red; }
+    .title .content span {
+      color: red; }
+
+div {
+  margin: 10px; }
+  div p {
+    font-size: 18px; }
+    div p span {
+      color: blue; }

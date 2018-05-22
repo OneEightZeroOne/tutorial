@@ -1,8 +1,8 @@
 //<div class="title">
 //  <p class="content">123<span>456</span></p>
 //</div>
-$color:"red";
-$size:"19px";
+$color:red;
+$size:30px;
 p {
     color: $color;
     background-color: #00f;
@@ -12,6 +12,7 @@ p {
 header {
     color: $color;
     font-size: $size;
+    background-color: blue;
 }
 
 .title {
@@ -26,6 +27,7 @@ header {
 }
 
 div {
+    margin: 10px;
     p {
         font-size: 18px;
         span {
