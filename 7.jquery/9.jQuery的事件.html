@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			<li data-num="1">1</li>
+			<li data-num="2">2</li>
+			<li data-num="3">3</li>
+		</ul>
+		<button>OK</button>
+		<script src="js/jquery-3.3.1.js"></script>
+		<script>
+			document.querySelector("button").onclick = function() {};
+			document.querySelector("button").addEventListener("click", function() {
+
+			});
+			
+			//往节点监听函数事件
+			/*$("ul").on("click", "li", {
+				foo: "bar"
+			}, function(event) {
+				console.log($(event.target).attr("data-num"))
+			})
+			
+			$("ul").on("click",function(){
+				
+			})*/
+			
+			$("ul li").click(function(event){
+				console.log($(event.target).attr("data-num"))
+			})
+		</script>
+	</body>
+
+</html>
