@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.demo {
+				padding: 10px;
+				background-color: red;
+			}
+			
+			#scope {
+				padding: 10px;
+				background-color: blue;
+			}
+			
+			.red {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		
+		<div name="laoxie" id="demo" class="demo">demo</div>
+		<div id="scope">
+			scope
+			<div name="laoyao" class="demo">demo</div>
+		</div>
+		<button>OK</button>
+		<script src="js/jquery-3.3.1.js"></script>
+		<script>
+			document.querySelector("#demo").setAttribute("name", "xiaoxie");
+			document.querySelector("#demo").getAttribute("name");
+			//增加属性值
+			$("#demo").attr({
+				name: "xiexie",
+				age: 18
+			})
+
+			//获取属性值
+			console.log($("#demo").attr("age"))
+			//更改属性值
+			$("#demo").attr({
+				name: "",
+				age: ""
+			})
+			//删除属性值
+			$("#demo").removeAttr("age");
+
+			$("#demo").attr({
+				class: "demo active",
+				sajdlaksjdalsdjalsdk: "ahsdkashdkajshdakdj"
+			});
+
+			//专门为类定制的属性操作
+
+			$("#demo").addClass("classname");
+			$("#demo").removeClass("classname");
+
+			$("button");
+			document.querySelector("button").onclick = function() {
+
+			}
+			//jq对象转原生对象  切换类名
+			$("button")[0].onclick = function() {
+				$("#demo").toggleClass("red")
+			}
+
+			//原生对象转jq对象
+			$(document.querySelector("button"));
+		</script>
+	</body>
+
+</html>

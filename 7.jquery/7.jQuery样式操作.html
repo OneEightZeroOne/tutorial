@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p{
+				padding: 20px;
+				margin: 20px;
+				border: 5px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<p>Hello</p><p>2nd Paragraph</p>
+		<script src="js/jquery-3.3.1.js"></script>
+		<script>
+			$("p").css({
+				"color":"red",
+				"background-color":"blue"
+			});
+			
+			//document.querySelector("p").style.backgroundColor = "blue";
+			console.log("不算padding和border的高度",$("p").height());
+			console.log("算上padding，但不算boder",$("p").innerHeight());
+			console.log("padding和border都算",$("p").outerHeight());
+			console.log(document.querySelector("p"))
+		</script>
+	</body>
+</html>

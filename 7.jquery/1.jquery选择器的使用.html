@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.demo{
+				padding: 10px;
+				background-color: red;
+			}
+			
+			#scope{
+				padding: 10px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			
+			
+		</div>
+		
+		<div id="container">
+			
+			
+		</div>
+		
+		<div id="footer">
+			
+			
+		</div>
+		
+		<div name="laoxie" id="demo" class="demo">demo</div>
+		<div id="scope">
+			scope
+			<div name="laoyao" class="demo">demo</div>
+		</div>
+		<!--1.先下载好jQ源代码-->
+		<!--2.在页面里面引入jQ  会在全局window拥有一个jQuery和$的方法   lodash和_  -->
+		<!--3.调用jQ-->
+		<script src="./js/jquery-3.3.1.js"></script>
+		<script>
+			//选择器和作用域     帮你定位并获取节点所在的位置
+			document.querySelector("#demo");
+			jQuery("#demo");
+			
+			//$(选择器,作用域)  作用域不写，默认就是在整个document里面寻找
+			$("#demo",document);//id选择器
+			$(".demo",$("#scope"));//类选择器
+			$("div");//标签选择器
+			
+			
+			$("*");//节点全选
+			$(".demo,#scope");
+			$("#scope .demo");
+			
+			
+			$("[name='laoyao']");//属性选择器
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input />
+		<textarea></textarea>
+		<select>
+			<option value="1">a</option>
+			<option value="2">b</option>
+			<option value="3">c</option>
+		</select>
+		
+		<div id="sethtml"></div>
+		<script src="js/jquery-3.3.1.js"></script>
+		<script>
+			document.querySelector("input").value;
+			//获取值
+			$("input").val();
+			
+			//设置值
+			$("input").val("hello world");
+			$("textarea").val("设置一个值");
+			$("select").val("2");
+			
+			//document.querySelector("#sethtml").innerHTML = "<p>设置html</p>";
+			$("#sethtml").html("<p>设置html</p>");
+			console.log($("body").html());
+			console.log($("p").text());
+		</script>
+	</body>
+</html>

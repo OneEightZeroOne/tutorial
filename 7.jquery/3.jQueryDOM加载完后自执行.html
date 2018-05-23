@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">demo</div>
+		<!--xss注入攻击-->
+		<script src="./js/jquery-3.3.1.js"></script>
+		<script>
+			//方法1
+			$(function(){
+				$("#demo").append("<p>page</p>")
+			})
+			//方法2
+			$(document).ready(function(){
+				
+			})
+		</script>
+	</body>
+</html>

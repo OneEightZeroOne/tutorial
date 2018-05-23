@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#demo {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button>切换动画</button>
+		<button>切换动画</button>
+		<div id="demo">demo</div>
+		<script src="js/jquery-3.3.1.js"></script>
+		<script>
+			$(function() {
+				var demo = $("#demo");
+				demo.show(3000, "swing", function() {
+					console.log("动画完成");
+				});
+				$("button:first").on("click", function() {
+					demo.toggle(3000, "linear", function() {
+						console.log("切换完成");
+					});
+				})
+
+				$("button:last").click(function() {
+					demo.slideDown();
+					demo.animate({
+						width: "90%",
+						height: "100%",
+						fontSize: "10em",
+						borderWidth: 10
+					}, 1000);
+				});
+			})
+		</script>
+	</body>
+
+</html>

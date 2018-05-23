@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div>
+			<!--prepend的位置-->
+			<p>demo</p>
+			<!--append的位置-->
+		</div>
+		<script src="./js/jquery-3.3.1.js"></script>
+		<script>
+			//$("<div id='demo' class='demo'>demo</div>").addClass("abc").appendTo("body");
+			/*var body = $("body");
+			body.append("<div id='demo' class='demo'>demo</div>");
+			body.addClass("abc");*/
+
+			$("div").append("<img src='https://avatars0.githubusercontent.com/u/70142?s=200&v=4' />");
+			
+			$("div").prepend("<img src='https://avatars2.githubusercontent.com/u/3950946?s=96&v=4' />");
+			//$(".demo").addClass("abc");
+
+			//$("div").append("<img src='https://avatars0.githubusercontent.com/u/70142?s=200&v=4' />");
+		</script>
+	</body>
+
+</html>
