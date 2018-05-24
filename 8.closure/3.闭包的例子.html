@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//一个空间
+			// 传统：
+			for(var i = 0; i < 5; ++i) {
+				setTimeout(function() {
+					console.log(i);
+				}, 100);
+			}
+
+			//多维空间
+			// 闭包
+			for(var i = 0; i < 5; i++) {
+				(function(i) {
+					setTimeout(function() {
+						console.log(i);
+					}, 100)
+				})(i);
+			}
+		</script>
+	</body>
+
+</html>

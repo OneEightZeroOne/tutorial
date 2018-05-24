@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//闭包
+			function a() {
+				var num = 1;
+
+				function b() {
+					num += 1;
+					console.log(num)
+				}
+
+				return b
+			}
+			console.log(a()); //function b(){}
+			//console.log(a()()); //1
+			//console.log(a()());
+			var fn = a();
+			fn();
+			fn();
+
+			//只有函数产生作用域  函数局部变量在执行的时候才产生，执行完毕之后就会销毁
+			/*function a() {
+				//局部变量
+				var num = 1;
+			}
+			a();*/
+		</script>
+	</body>
+
+</html>
