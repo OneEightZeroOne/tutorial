@@ -1,7 +1,6 @@
 ;(function(jQuery) {
 	var b = 2;
 	jQuery.fn.extend({
-
 		//js
 		xheader: function(option) {
 			console.log(this);
