@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo"></div>
+		<script src="lib/template-web.js"></script>
+		<!--V-->
+		<script id="tpl-user" type="text/html">
+			{{if user}}
+			<h2>{{user.name}}</h2>
+				<ul>
+					<% for(var i = 0; i < user.data.length; i++){ %>
+					<li id="<%= i %>"><%= user.data[i] %></li>
+					<% } %>
+				</ul>
+			{{/if}}
+		</script>
+		<script>
+			//template
+			var html = template("tpl-user", {
+				//M
+				user: {
+					name: 'aui',
+					data: [1, 2, 3]
+				}
+			});
+			console.log(html);
+			//el
+			document.querySelector("#demo").innerHTML = html;
+		</script>
+	</body>
+
+</html>

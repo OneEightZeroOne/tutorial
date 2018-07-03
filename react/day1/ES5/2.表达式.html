@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--V-->
+		<div id="demo"></div>
+		<!--React 的核心库   React全局变量-->
+		<script src="js/react.js"></script>
+		<!--提供与 DOM 相关的功能 ReactDOM全局变量-->
+		<script src="js/react-dom.js"></script>
+		<!--Babel 可以将 ES6 代码转为 ES5 代码  JSXs-->
+		<script src="js/babel.js"></script>
+		
+		<!--type="text/babel"-->
+		<script type="text/babel">
+			let data = {
+				name:"ABC",
+				num:1,
+				bool:true,
+				attr:"attribute"
+			}
+			//el template
+			ReactDOM.render(
+				<div>
+					<p style={{'color':'red'}}>1.字符串</p>
+					<p>{data.name+'EF'}</p>
+					<p style={{'color':'red'}}>2.数字</p>
+					<p>{data.num+12}</p>
+					<p style={{'color':'red'}}>3.一元,二元和三元表达式</p>
+					<p>{data.bool?"真的":"假的"}</p>
+					<p style={{'color':'red'}}>4.属性值</p>
+					<p id={data.attr}>属性值</p>
+				</div>,
+				document.querySelector("#demo")
+			)
+		</script>
+	</body>
+</html>

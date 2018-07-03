@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--V-->
+		<div id="demo"></div>
+		<!--React 的核心库   React全局变量-->
+		<script src="js/react.js"></script>
+		<!--提供与 DOM 相关的功能 ReactDOM全局变量-->
+		<script src="js/react-dom.js"></script>
+		<!--Babel 可以将 ES6 代码转为 ES5 代码  JSXs-->
+		<script src="js/babel.js"></script>
+		
+		<!--type="text/babel"-->
+		<script type="text/babel">
+			/*new Vue({
+				el:"#demo",
+				template:`<div>{{name}}</div>`,
+				data:{
+					name:"hello world"
+				}
+			})*/
+			
+			//M->V   V->M
+			//M->V   V-----M
+			
+			//data
+			let data = {
+				name:"ABC"
+			}
+			//el template
+			ReactDOM.render(
+				<div>
+					{data.name}
+				</div>,
+				document.querySelector("#demo")
+			)
+		</script>
+	</body>
+</html>
