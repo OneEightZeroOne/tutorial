@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--H5-->
+		<canvas id="myCanvas" width="200" height="100"></canvas>
+		<script>
+			//Flash
+			//JS
+			//获取画布节点
+			var canvas = document.querySelector("#myCanvas");
+			//获取画布的二维空间 x轴和y轴  cxt是一个空间
+			var cxt = canvas.getContext("2d");
+			//填充颜色
+			cxt.fillStyle = "#FF0000";
+			//矩形 （x轴坐标，y轴坐标，长度，宽度）
+			cxt.fillRect(0, 0, 150, 75);
+		</script>
+	</body>
+</html>

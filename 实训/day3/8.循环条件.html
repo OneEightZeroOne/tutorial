@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // (1)条件
+        var num = 1
+        if (num > 2) {
+            // 条件为真执行
+            console.log('真的')
+        } else {
+            // 条件为假执行
+            console.log('假的')
+        }
+
+        var n = 4;
+        switch (n) {
+            case 1:
+                console.log("执行代码块 1")
+                break;
+            case 2:
+                console.log("执行代码块 2")
+                break;
+            default:
+                console.log("执行代码块 3")
+        }
+
+        // (2)循环
+        for (var num2 = 1; num2 < 5; num2 = num2 + 1) {
+            console.log(num2)
+        }
+        // 1  1<5  1
+        // 2  2<5  1
+        // 3  3<5  1
+        // 4  4<5  1
+        // 5  5<5
+
+        // 顺序
+
+
+        var arr = document.querySelectorAll("img");
+        for (var num = 0; num < 70; num = num + 1) {
+            arr[num].src =
+                "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1448567936,1673256041&fm=27&gp=0.jpg"
+        }
+    </script>
+</body>
+
+</html>

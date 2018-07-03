@@ -14,10 +14,10 @@
 	<body>
 		<!--头部组件-->
 		<!--<xheader></xheader>-->
-		<xnav></xnav>
-		<xnav></xnav>
-		<xnav></xnav>
-		<xnav></xnav>
+		<xnav1></xnav1>
+		<xnav2></xnav2>
+		<!--<xnav></xnav>
+		<xnav></xnav>-->
 		<script src="../js/jquery-3.3.1.js"></script>
 		<!--插件->组件-->
 		<!--<script src="header/header.js"></script>-->
@@ -27,7 +27,14 @@
 			/*$("xheader").xheader({
 				title: "详情页"
 			});*/
-			$("xnav").xnav().addClass("wscats");
-		</script>
+			$("xnav1").xnav({
+				title:"第一",
+				color:"red"
+			}).addClass("wscats");
+			$("xnav2").xnav({
+				title:"第二",
+				color:"blue"
+			}).addClass("wscats");
+</script>
 	</body>
 </html>

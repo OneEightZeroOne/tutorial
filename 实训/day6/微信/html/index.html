@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/weui.css" />
+	</head>
+
+	<body>
+		<div class="weui-search-bar" id="searchBar">
+			<form class="weui-search-bar__form">
+				<div class="weui-search-bar__box">
+					<i class="weui-icon-search"></i>
+					<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+					<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+				</div>
+				<label class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span>搜索</span>
+                </label>
+			</form>
+			<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+		</div>
+		<div class="weui-panel weui-panel_access">
+			<div class="weui-panel__hd">文字组合列表</div>
+			<div id="news" class="weui-panel__bd">
+				<!--第一条新闻-->
+				<a href="article.html">
+					<div class="weui-media-box weui-media-box_text">
+						<h4 class="weui-media-box__title">标题一</h4>
+						<p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+					</div>
+				</a>
+				<!--第二条新闻-->
+				<a href="article.html">
+					<div class="weui-media-box weui-media-box_text">
+						<h4 class="weui-media-box__title">标题二</h4>
+						<p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+					</div>
+				</a>
+			</div>
+			<div class="weui-panel__ft">
+				<a id="loadMore" href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+					<div class="weui-cell__bd">查看更多</div>
+					<span class="weui-cell__ft"></span>
+				</a>
+			</div>
+		</div>
+		<div class="weui-tabbar">
+			<a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+				<span style="display: inline-block;position: relative;">
+                        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+				</span>
+				<p class="weui-tabbar__label">微信</p>
+			</a>
+			<a href="javascript:;" class="weui-tabbar__item">
+				<img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+				<p class="weui-tabbar__label">通讯录</p>
+			</a>
+			<a href="javascript:;" class="weui-tabbar__item">
+				<span style="display: inline-block;position: relative;">
+                        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+				</span>
+				<p class="weui-tabbar__label">发现</p>
+			</a>
+			<a href="javascript:;" class="weui-tabbar__item">
+				<img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+				<p class="weui-tabbar__label">我</p>
+			</a>
+		</div>
+		<script>
+			document.querySelector("#loadMore").onclick = function() {
+				console.log("加载更多")
+				document.querySelector("#news").innerHTML = `
+					<!--第一条新闻-->
+					<a href="article.html">
+						<div class="weui-media-box weui-media-box_text">
+							<h4 class="weui-media-box__title">标题一</h4>
+							<p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+						</div>
+					</a>
+					<!--第二条新闻-->
+					<a href="article.html">
+						<div class="weui-media-box weui-media-box_text">
+							<h4 class="weui-media-box__title">标题二</h4>
+							<p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+						</div>
+					</a>
+					<!--第二条新闻-->
+					<a href="article.html">
+						<div class="weui-media-box weui-media-box_text">
+							<h4 class="weui-media-box__title">标题二</h4>
+							<p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+						</div>
+					</a>
+				`
+				
+			}
+		</script>
+	</body>
+
+</html>

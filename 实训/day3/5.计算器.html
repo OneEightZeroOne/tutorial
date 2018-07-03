@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="number" id="num1" />
+		<input type="number" id="num2" />
+		<button id="plus">+</button>
+		<button id="sub">-</button>
+		<button id="multi">*</button>
+		<button id="div">/</button>
+		<p>结果</p>
+		<p id="sum">计算中...</p>
+		<script>
+			document.querySelector("#plus").onclick = function(){
+				/*
+				 * '1'+'2' = '12'
+					1 + 2  = 3
+				*/
+				var num1 = document.querySelector("#num1").value;
+				var num2 = document.querySelector("#num2").value;
+				var sum = parseFloat(num1)+parseFloat(num2);
+				console.log(num1,num2)
+				document.querySelector("#sum").innerHTML = sum;
+			}
+			
+			document.querySelector("#sub").onclick = function(){
+				/*
+				 * '1'+'2' = '12'
+					1 + 2  = 3
+				*/
+				
+				var num1 = document.querySelector("#num1").value;
+				var num2 = document.querySelector("#num2").value;
+				var sum = parseFloat(num1)-parseFloat(num2);
+				console.log(num1,num2)
+				document.querySelector("#sum").innerHTML = sum;
+			}
+		</script>
+	</body>
+</html>

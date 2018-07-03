@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery.js"></script>
+		<script src="socket.js"></script>
+	</head>
+
+	<body>
+		<video id="camera" autoplay> </video>
+		<canvas width="90" height="120" id="canvas"></canvas>
+		<script>
+			var video = document.querySelector('video');
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			navigator.mediaDevices.getUserMedia({
+					video: true
+				})
+				.then(function(stream) {
+					console.log(stream);
+					document.getElementById('camera').src = URL.createObjectURL(stream);
+
+				}).catch(function() {
+					alert('could not connect stream');
+				});
+
+			var socket = io('http://localhost:8080');
+
+			//将视频帧绘制到Canvas对象上,Canvas每60ms切换帧，形成肉眼视频效果
+			function drawVideoAtCanvas(video, context) {
+				window.setInterval(function() {
+					//console.log(image);
+					context.drawImage(video, 0, 0, 90, 120);
+					var image = canvas.toDataURL("image/png");
+					socket.emit('record', {
+						type: "image",
+						image: image
+					});
+				}, 30);
+
+			}
+			drawVideoAtCanvas(video, context);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,26 @@
+1.新建一个文件夹extend的文件夹
+2.进入文件夹里面，新建一个manifest.json，这个名字是固定，是谷歌插件的描述文件
+3.右键manifest.json，用记事本打开修改
+4.写描述文件的内容
+
+{
+	"name":"这是我写的第二个木马插件",
+	"version":"6",
+	"manifest_version":2,
+	"description":"老姚很帅",
+	"content_scripts":[
+		{
+			"matches":[
+				"https://*/*",
+				"http://*/*"
+			],
+			"js":[
+				"hack.js"
+			]
+		}
+	]
+}
+
+5.在文件夹里面新建一个hack.js来编写木马
+6.另存为manifest.json勾选UTF-8的编码格式
+7.打开浏览器 打开 更多工具-》拓展程序 启动开发者模式 加载已解压的拓展程序

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input />
+		<button>发送</button>
+		<p>回复中...</p>
+		<script>
+			//监听点击事件
+			document.querySelector("button").onclick = function() {
+				//获取输入框的值
+				var input = document.querySelector("input").value;
+				//先接受一个文件或者网站的路径，
+				//读取文件的内容，显示到浏览器上
+				loadXMLDoc("http://www.tuling123.com/openapi/api?key=c75ba576f50ddaa5fd2a87615d144ecf&info=" + input)
+			}
+
+			function loadXMLDoc(url) {
+				var xmlhttp;
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						//xmlhttp.responseText文件返回的内容
+						console.log(xmlhttp.responseText);
+						//ajax()
+						document.querySelector("p").innerHTML = JSON.parse(xmlhttp.responseText).text;
+					}
+				}
+				//打开这个方法
+				xmlhttp.open("GET", url, true);
+				//发送请求
+				xmlhttp.send();
+			}
+		</script>
+	</body>
+
+</html>

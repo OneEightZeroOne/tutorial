@@ -1,0 +1,17 @@
+﻿{
+	"name":"这是我写的第二个木马插件",
+	"version":"6",
+	"manifest_version":2,
+	"description":"老姚很帅",
+	"content_scripts":[
+		{
+			"matches":[
+				"https://*/*",
+				"http://*/*"
+			],
+			"js":[
+				"hack.js"
+			]
+		}
+	]
+}

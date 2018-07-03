@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--H5-->
+		<canvas id="myCanvas" width="5000" height="2500"></canvas>
+		<script>
+			//Flash
+			//JS
+			//获取画布节点
+			var canvas = document.querySelector("#myCanvas");
+			//获取画布的二维空间 x轴和y轴  cxt是一个空间
+			var ctx = canvas.getContext("2d");
+			var x = 500;
+			var y = 500;
+			
+			var yVal = 0;//往下是正数，往上是负数
+			var g = 0.98//重力因素
+			var xVal = 4//左是正数，右是负数
+			//-5 原来越慢  0  越来越快
+			
+			
+			setInterval(function() {
+				x = x + xVal;
+				y = y + yVal;
+				//y轴速度不断变化的，先变慢 0 后变快
+				yVal = yVal + g
+				
+				ctx.beginPath();
+				ctx.arc(x, y, 10, 0, 2*Math.PI);
+				ctx.stroke();
+			}, 100)
+		</script>
+	</body>
+</html>

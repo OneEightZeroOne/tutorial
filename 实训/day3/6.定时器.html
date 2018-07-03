@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//无数次
+			//1000毫秒 = 1秒
+			setInterval(function() {
+				console.log("你好")
+			}, 1000)
+
+			var num = 10;
+			setInterval(function() {
+				document.querySelector("#su").style.marginTop = (num + 'px'); //10px
+				console.log("你好");
+				num = num + 10;
+			}, 1000)
+
+			setInterval(function() {
+				var num = document.querySelector("#price9").innerHTML
+				console.log(num)
+				if(num > 2822.50) {
+					console.log("成交")
+				}
+			}, 50)
+			var num = 0;
+			setInterval(function() {
+				var arr = document.querySelectorAll("img");
+				arr[num].src = "https://ui.ptlogin2.qq.com/style/8/images/logo.png";
+				num = num + 1;
+			}, 1000)
+		</script>
+	</body>
+
+</html>

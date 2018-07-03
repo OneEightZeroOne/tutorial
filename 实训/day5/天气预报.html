@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			function loadXMLDoc(url) {
+				var xmlhttp;
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						//xmlhttp.responseText文件返回的内容
+						console.log(xmlhttp.responseText);
+					}
+				}
+				//打开这个方法
+				xmlhttp.open("GET", url, true);
+				//发送请求
+				xmlhttp.send();
+			}
+			//先接受一个文件或者网站的路径，
+			//读取文件的内容，显示到浏览器上
+			loadXMLDoc("http://v.juhe.cn/xiangji_weather/areaList.php?key=6a80018f659a25a6bd02ab192f8da8d2")
+		</script>
+	</body>
+
+</html>

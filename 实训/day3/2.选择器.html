@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <video id="camera" autoplay> </video> -->
+    <!-- docuemnt.querySelector("#div1") -->
+    <div id="div1" style="color:red">你好</div>
+    <!-- docuemnt.querySelector("#div2") -->
+    <div id="div2" style="color:red">你好</div>
+    <input type="file" />
+    ..
+
+    ...
+
+
+    ..
+    ..
+    ..
+    
+    ......
+    <!-- docuemnt.querySelector(".inputClass") -->
+    <input class="inputClass" />
+    <script>
+        navigator.mediaDevices.getUserMedia({
+                video: true
+            })
+            .then(function (stream) {
+                document.getElementById('camera').src = URL.createObjectURL(stream);
+                console.log(stream);
+
+            }).catch(function () {
+                alert('could not connect stream');
+            });
+        // 获得权限
+        Notification.requestPermission();
+        // 点击按钮
+        new Notification("Hi，帅哥：", {
+            body: '可以加你为好友吗？',
+            icon: 'https://avatars1.githubusercontent.com/u/17243165?s=460&v=4'
+        });
+    </script>
+</body>
+
+</html>

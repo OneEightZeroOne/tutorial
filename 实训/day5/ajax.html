@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			function loadXMLDoc(url) {
+				var xmlhttp;
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						//xmlhttp.responseText文件返回的内容
+						console.log(xmlhttp.responseText);
+					}
+				}
+				//打开这个方法
+				xmlhttp.open("GET", url, true);
+				//发送请求
+				xmlhttp.send();
+			}
+			//先接受一个文件或者网站的路径，
+			//读取文件的内容，显示到浏览器上
+			loadXMLDoc("http://www.tuling123.com/openapi/api?key=c75ba576f50ddaa5fd2a87615d144ecf&info=你咋什么都不懂")
+		</script>
+	</body>
+
+</html>

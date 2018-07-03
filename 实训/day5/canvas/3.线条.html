@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--H5-->
+		<canvas id="myCanvas" width="500" height="250"></canvas>
+		<script>
+			//Flash
+			//JS
+			//获取画布节点
+			var canvas = document.querySelector("#myCanvas");
+			//获取画布的二维空间 x轴和y轴  cxt是一个空间
+			var ctx = canvas.getContext("2d");
+			ctx.beginPath();
+			ctx.lineWidth = "5";
+			ctx.strokeStyle = "red"; // 红色路径
+			ctx.moveTo(0, 0);  //x = 0,y = 75
+			/*ctx.lineTo(25, 75); //x = 25,y = 75
+			ctx.lineTo(50, 60); //x = 50,y = 60  (0,75)->(25.75)->(50,60)
+			ctx.lineTo(75, 90);*/
+			
+			var x = 0;
+			setInterval(function(){
+				x = x + 10
+				ctx.lineTo(x, parseInt(Math.random()*100));//0~1   0~100
+				ctx.stroke(); // 进行绘制
+			},1000)
+		</script>
+	</body>
+
+</html>

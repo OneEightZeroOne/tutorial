@@ -2,6 +2,7 @@
 	var b = 1;
 	jQuery.fn.extend({
 		xnav: function(option) {
+			console.log(option)
 			return this.each(function() {
 				//html
 				$.ajax({
@@ -13,7 +14,10 @@
 						$(this).html(data);
 						$(this).find(".dropdown-toggle").click(function() {
 							$(this).find(".dropdown-menu").toggle(1000, "linear");
-						}.bind(this))
+						}.bind(this));
+						$(this).find("li").eq(0).text(option.title).css("color",option.color);
+						console.log($(this).find("li").eq(0))
+						//$("li",this).eq(0).title(option.title);
 					}.bind(this)
 				});
 

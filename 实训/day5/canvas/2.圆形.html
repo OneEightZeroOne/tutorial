@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--H5-->
+		<canvas id="myCanvas" width="500" height="250"></canvas>
+		<script>
+			//Flash
+			//JS
+			//获取画布节点
+			var canvas = document.querySelector("#myCanvas");
+			//获取画布的二维空间 x轴和y轴  cxt是一个空间
+			var ctx = canvas.getContext("2d");
+			var x = 0;
+			setInterval(function() {
+				x = x + 5;
+				ctx.beginPath();
+				ctx.arc(x, 75, x, 0, 2*Math.PI);
+				ctx.stroke();
+			}, 1000)
+		</script>
+	</body>
+
+</html>

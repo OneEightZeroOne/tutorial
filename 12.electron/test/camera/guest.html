@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery.js"></script>
+		<script src="socket.js"></script>
+	</head>
+
+	<body>
+		<canvas width="180" height="240" id="canvas"></canvas>
+		<script>
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			var socket = io('http://localhost:8080');
+
+			//将视频帧绘制到Canvas对象上,Canvas每60ms切换帧，形成肉眼视频效果
+			function drawVideoAtCanvas(context) {
+				socket.on('play', function(data) {
+					//console.log(data)
+					var image = new Image();
+					image.src = data.image;
+					//console.log(image);
+					//context.drawImage(image, 0, 0, 90, 120);
+					image.onload = function() {
+						context.drawImage(image, 0, 0, 180, 240);
+					}
+				});
+
+			}
+			drawVideoAtCanvas(context);
+		</script>
+	</body>
+
+</html>
