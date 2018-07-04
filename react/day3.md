@@ -17,3 +17,6 @@ beforeUpdated
 
 updated
 
+# redux
+
+[React-redux](https://github.com/Wscats/react-tutorial/issues/8)
