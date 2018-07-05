@@ -1,23 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 //weui
 import "weui";
 //全局自定义样式
 import './index.css';
 //根组件
 import App from './App';
-//头部组件
-import Xheader from './components/xheader/xheader';
-//搜索框组件
-import Xsearch from './components/xsearch/xsearch';
-//列表组件
-import Xpanel from './components/xpanel/xpanel';
-
-import Xjsx from './components/xjsx/xjsx';
-//指令示例组件
-
-//生命周期示例组件
-import Xlifecycle from './components/xlifecycle/xlifecycle';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -26,11 +16,20 @@ import { Provider } from 'react-redux';
 //createStore是创建仓库的方法
 import { createStore } from 'redux';
 
+//页面组件
+//主页
+import Home from './pages/home/home';
+//设置页
+import Setting from './pages/setting/setting';
+//详情页
+import Detail from './pages/detail/detail';
+
 // Store 创建仓库
 const store = createStore((state = {
 	isShowGallery: false,
 	gallerySrc: "",
-	count: 0
+	count: 0,
+	isShowActionSheet: false
 }, action) => {
 	const count = state.count
 	switch(action.type) {
@@ -49,20 +48,24 @@ const store = createStore((state = {
 				isShowGallery: action.isShowGallery,
 				gallerySrc: action.gallerySrc
 			});
+		case 'showActionsheet':
+			return Object.assign({}, state, {
+				isShowActionSheet: action.isShowActionSheet,
+			});
 		default:
 			return state
 	}
 });
 
 ReactDOM.render(
-	<Provider store={store}>
-		<div>
-			<Xheader />
-			<Xsearch />
-			<Xpanel />
-			<Xjsx />
-			<Xlifecycle />
-		</div>
-	</Provider>,
+	<Router>
+		<Provider store={store}>
+			<div>
+				<Route exact path="/" component={Home}/>
+				<Route path="/setting" component={Setting}/>
+				<Route path="/detail" component={Detail}/>
+			</div>
+		</Provider>
+	</Router>,
 	document.getElementById('root'));
 registerServiceWorker();
