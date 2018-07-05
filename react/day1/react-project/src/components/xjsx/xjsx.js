@@ -1,6 +1,7 @@
 import React, {
 	Component
 } from 'react';
+import emitter from '../../util/events';
 class Xjsx extends Component {
 	constructor(props) {
 		super(props);
@@ -26,6 +27,7 @@ class Xjsx extends Component {
 		this.setState({
 			bool: !this.state.bool
 		})
+		emitter.emit('changeMessage', 'abc');
 	}
 
 	setName(name) {

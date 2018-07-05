@@ -1,20 +1,24 @@
-import React, { Component } from 'react';
+import React, {
+	Component
+} from 'react';
 //css
 import './xheader.css';
 import { connect } from 'react-redux';
+
+import emitter from '../../util/events';
 //html
 class Xheader extends Component {
 	constructor(props) {
 		super(props);
 		//类实例化，执行
 		this.state = {
-
+			title:"微信"
 		}
-		console.log(this)
+		console.log(emitter)
 	}
-  render() {
-    return (
-      <div>
+	render() {
+		return(
+			<div>
       	<header onClick={this.props.showActionsheet.bind(this,this)} style={{
       		width:"100%",
       		height:"50px",
@@ -22,10 +26,21 @@ class Xheader extends Component {
       		textAlign:"center",
       		backgroundColor:"red",
       		color:"white"
-      	}}>微信</header>
+      	}}>{this.state.title}</header>
       </div>
-    );
-  }
+		);
+	}
+	componentDidMount() {
+		// 组件装载完成以后声明一个自定义事件
+		this.eventEmitter = emitter.addListener('changeMessage', (title) => {
+			this.setState({
+				title,
+			});
+		});
+	}
+	componentWillUnmount() {
+		emitter.removeListener(this.eventEmitter);
+	}
 }
 
 export default connect((state) => {

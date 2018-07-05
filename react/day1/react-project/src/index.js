@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+//import {} from 'framework7-react';
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 //weui
 import "weui";
